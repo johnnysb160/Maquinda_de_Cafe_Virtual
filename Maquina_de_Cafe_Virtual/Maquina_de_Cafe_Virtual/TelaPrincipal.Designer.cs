@@ -46,6 +46,9 @@
             this.lblValorCreditado = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxTroco = new System.Windows.Forms.GroupBox();
+            this.qtdaMoeda1Real = new System.Windows.Forms.Label();
+            this.qtdaMoeda50Centavos = new System.Windows.Forms.Label();
+            this.qtdaMoeda25Centavos = new System.Windows.Forms.Label();
             this.imgTroco1Real = new System.Windows.Forms.PictureBox();
             this.imgTroco50Centavos = new System.Windows.Forms.PictureBox();
             this.imgTroco25Centavos = new System.Windows.Forms.PictureBox();
@@ -58,10 +61,9 @@
             this.lblEntrega = new System.Windows.Forms.Label();
             this.imgEntregaMocha = new System.Windows.Forms.PictureBox();
             this.imgEntregaCafeComLeite = new System.Windows.Forms.PictureBox();
+            this.imgTroco5Centavos = new System.Windows.Forms.PictureBox();
             this.qtdaMoeda10Centavos = new System.Windows.Forms.Label();
-            this.qtdaMoeda25Centavos = new System.Windows.Forms.Label();
-            this.qtdaMoeda50Centavos = new System.Windows.Forms.Label();
-            this.qtdaMoeda1Real = new System.Windows.Forms.Label();
+            this.qtdaMoeda5Centavos = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSetaCafeComLeite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSetaMocha)).BeginInit();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaCappuccino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaMocha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaCafeComLeite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTroco5Centavos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCappucino
@@ -282,7 +285,7 @@
             this.lblValorCreditado.AutoSize = true;
             this.lblValorCreditado.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorCreditado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblValorCreditado.Location = new System.Drawing.Point(114, 13);
+            this.lblValorCreditado.Location = new System.Drawing.Point(78, 13);
             this.lblValorCreditado.Name = "lblValorCreditado";
             this.lblValorCreditado.Size = new System.Drawing.Size(0, 31);
             this.lblValorCreditado.TabIndex = 0;
@@ -300,28 +303,60 @@
             // 
             // groupBoxTroco
             // 
+            this.groupBoxTroco.Controls.Add(this.qtdaMoeda5Centavos);
+            this.groupBoxTroco.Controls.Add(this.qtdaMoeda10Centavos);
+            this.groupBoxTroco.Controls.Add(this.imgTroco5Centavos);
             this.groupBoxTroco.Controls.Add(this.qtdaMoeda1Real);
             this.groupBoxTroco.Controls.Add(this.qtdaMoeda50Centavos);
             this.groupBoxTroco.Controls.Add(this.qtdaMoeda25Centavos);
-            this.groupBoxTroco.Controls.Add(this.qtdaMoeda10Centavos);
             this.groupBoxTroco.Controls.Add(this.imgTroco1Real);
             this.groupBoxTroco.Controls.Add(this.imgTroco50Centavos);
             this.groupBoxTroco.Controls.Add(this.imgTroco25Centavos);
             this.groupBoxTroco.Controls.Add(this.imgTroco10Centavos);
-            this.groupBoxTroco.Location = new System.Drawing.Point(288, 148);
+            this.groupBoxTroco.Location = new System.Drawing.Point(280, 161);
             this.groupBoxTroco.Name = "groupBoxTroco";
-            this.groupBoxTroco.Size = new System.Drawing.Size(86, 295);
+            this.groupBoxTroco.Size = new System.Drawing.Size(89, 273);
             this.groupBoxTroco.TabIndex = 9;
             this.groupBoxTroco.TabStop = false;
             this.groupBoxTroco.Text = "Troco";
             this.groupBoxTroco.Visible = false;
             // 
+            // qtdaMoeda1Real
+            // 
+            this.qtdaMoeda1Real.AutoSize = true;
+            this.qtdaMoeda1Real.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtdaMoeda1Real.Location = new System.Drawing.Point(4, 237);
+            this.qtdaMoeda1Real.Name = "qtdaMoeda1Real";
+            this.qtdaMoeda1Real.Size = new System.Drawing.Size(0, 13);
+            this.qtdaMoeda1Real.TabIndex = 7;
+            this.qtdaMoeda1Real.Visible = false;
+            // 
+            // qtdaMoeda50Centavos
+            // 
+            this.qtdaMoeda50Centavos.AutoSize = true;
+            this.qtdaMoeda50Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtdaMoeda50Centavos.Location = new System.Drawing.Point(3, 185);
+            this.qtdaMoeda50Centavos.Name = "qtdaMoeda50Centavos";
+            this.qtdaMoeda50Centavos.Size = new System.Drawing.Size(0, 13);
+            this.qtdaMoeda50Centavos.TabIndex = 6;
+            this.qtdaMoeda50Centavos.Visible = false;
+            // 
+            // qtdaMoeda25Centavos
+            // 
+            this.qtdaMoeda25Centavos.AutoSize = true;
+            this.qtdaMoeda25Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtdaMoeda25Centavos.Location = new System.Drawing.Point(4, 137);
+            this.qtdaMoeda25Centavos.Name = "qtdaMoeda25Centavos";
+            this.qtdaMoeda25Centavos.Size = new System.Drawing.Size(0, 13);
+            this.qtdaMoeda25Centavos.TabIndex = 5;
+            this.qtdaMoeda25Centavos.Visible = false;
+            // 
             // imgTroco1Real
             // 
             this.imgTroco1Real.Image = ((System.Drawing.Image)(resources.GetObject("imgTroco1Real.Image")));
-            this.imgTroco1Real.Location = new System.Drawing.Point(5, 226);
+            this.imgTroco1Real.Location = new System.Drawing.Point(21, 216);
             this.imgTroco1Real.Name = "imgTroco1Real";
-            this.imgTroco1Real.Size = new System.Drawing.Size(77, 64);
+            this.imgTroco1Real.Size = new System.Drawing.Size(62, 53);
             this.imgTroco1Real.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgTroco1Real.TabIndex = 3;
             this.imgTroco1Real.TabStop = false;
@@ -330,9 +365,9 @@
             // imgTroco50Centavos
             // 
             this.imgTroco50Centavos.Image = ((System.Drawing.Image)(resources.GetObject("imgTroco50Centavos.Image")));
-            this.imgTroco50Centavos.Location = new System.Drawing.Point(5, 156);
+            this.imgTroco50Centavos.Location = new System.Drawing.Point(21, 167);
             this.imgTroco50Centavos.Name = "imgTroco50Centavos";
-            this.imgTroco50Centavos.Size = new System.Drawing.Size(77, 64);
+            this.imgTroco50Centavos.Size = new System.Drawing.Size(62, 47);
             this.imgTroco50Centavos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgTroco50Centavos.TabIndex = 2;
             this.imgTroco50Centavos.TabStop = false;
@@ -341,9 +376,9 @@
             // imgTroco25Centavos
             // 
             this.imgTroco25Centavos.Image = ((System.Drawing.Image)(resources.GetObject("imgTroco25Centavos.Image")));
-            this.imgTroco25Centavos.Location = new System.Drawing.Point(5, 86);
+            this.imgTroco25Centavos.Location = new System.Drawing.Point(21, 118);
             this.imgTroco25Centavos.Name = "imgTroco25Centavos";
-            this.imgTroco25Centavos.Size = new System.Drawing.Size(77, 64);
+            this.imgTroco25Centavos.Size = new System.Drawing.Size(62, 46);
             this.imgTroco25Centavos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgTroco25Centavos.TabIndex = 1;
             this.imgTroco25Centavos.TabStop = false;
@@ -352,9 +387,9 @@
             // imgTroco10Centavos
             // 
             this.imgTroco10Centavos.Image = ((System.Drawing.Image)(resources.GetObject("imgTroco10Centavos.Image")));
-            this.imgTroco10Centavos.Location = new System.Drawing.Point(9, 16);
+            this.imgTroco10Centavos.Location = new System.Drawing.Point(21, 70);
             this.imgTroco10Centavos.Name = "imgTroco10Centavos";
-            this.imgTroco10Centavos.Size = new System.Drawing.Size(77, 64);
+            this.imgTroco10Centavos.Size = new System.Drawing.Size(62, 47);
             this.imgTroco10Centavos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgTroco10Centavos.TabIndex = 0;
             this.imgTroco10Centavos.TabStop = false;
@@ -367,7 +402,7 @@
             this.btnComprar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComprar.FlatAppearance.BorderSize = 0;
             this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprar.Location = new System.Drawing.Point(286, 14);
+            this.btnComprar.Location = new System.Drawing.Point(288, 29);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(81, 68);
             this.btnComprar.TabIndex = 3;
@@ -395,7 +430,7 @@
             this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(291, 103);
+            this.btnCancelar.Location = new System.Drawing.Point(288, 118);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(81, 27);
             this.btnCancelar.TabIndex = 11;
@@ -458,46 +493,37 @@
             this.imgEntregaCafeComLeite.TabStop = false;
             this.imgEntregaCafeComLeite.Visible = false;
             // 
+            // imgTroco5Centavos
+            // 
+            this.imgTroco5Centavos.Image = ((System.Drawing.Image)(resources.GetObject("imgTroco5Centavos.Image")));
+            this.imgTroco5Centavos.Location = new System.Drawing.Point(21, 13);
+            this.imgTroco5Centavos.Name = "imgTroco5Centavos";
+            this.imgTroco5Centavos.Size = new System.Drawing.Size(62, 55);
+            this.imgTroco5Centavos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgTroco5Centavos.TabIndex = 8;
+            this.imgTroco5Centavos.TabStop = false;
+            this.imgTroco5Centavos.Visible = false;
+            // 
             // qtdaMoeda10Centavos
             // 
             this.qtdaMoeda10Centavos.AutoSize = true;
-            this.qtdaMoeda10Centavos.BackColor = System.Drawing.Color.Transparent;
             this.qtdaMoeda10Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtdaMoeda10Centavos.Location = new System.Drawing.Point(5, 16);
+            this.qtdaMoeda10Centavos.Location = new System.Drawing.Point(4, 89);
             this.qtdaMoeda10Centavos.Name = "qtdaMoeda10Centavos";
             this.qtdaMoeda10Centavos.Size = new System.Drawing.Size(0, 13);
-            this.qtdaMoeda10Centavos.TabIndex = 4;
+            this.qtdaMoeda10Centavos.TabIndex = 9;
             this.qtdaMoeda10Centavos.Visible = false;
             // 
-            // qtdaMoeda25Centavos
+            // qtdaMoeda5Centavos
             // 
-            this.qtdaMoeda25Centavos.AutoSize = true;
-            this.qtdaMoeda25Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtdaMoeda25Centavos.Location = new System.Drawing.Point(5, 86);
-            this.qtdaMoeda25Centavos.Name = "qtdaMoeda25Centavos";
-            this.qtdaMoeda25Centavos.Size = new System.Drawing.Size(0, 13);
-            this.qtdaMoeda25Centavos.TabIndex = 5;
-            this.qtdaMoeda25Centavos.Visible = false;
-            // 
-            // qtdaMoeda50Centavos
-            // 
-            this.qtdaMoeda50Centavos.AutoSize = true;
-            this.qtdaMoeda50Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtdaMoeda50Centavos.Location = new System.Drawing.Point(5, 156);
-            this.qtdaMoeda50Centavos.Name = "qtdaMoeda50Centavos";
-            this.qtdaMoeda50Centavos.Size = new System.Drawing.Size(0, 13);
-            this.qtdaMoeda50Centavos.TabIndex = 6;
-            this.qtdaMoeda50Centavos.Visible = false;
-            // 
-            // qtdaMoeda1Real
-            // 
-            this.qtdaMoeda1Real.AutoSize = true;
-            this.qtdaMoeda1Real.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtdaMoeda1Real.Location = new System.Drawing.Point(5, 226);
-            this.qtdaMoeda1Real.Name = "qtdaMoeda1Real";
-            this.qtdaMoeda1Real.Size = new System.Drawing.Size(0, 13);
-            this.qtdaMoeda1Real.TabIndex = 7;
-            this.qtdaMoeda1Real.Visible = false;
+            this.qtdaMoeda5Centavos.AutoSize = true;
+            this.qtdaMoeda5Centavos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtdaMoeda5Centavos.Location = new System.Drawing.Point(4, 36);
+            this.qtdaMoeda5Centavos.Name = "qtdaMoeda5Centavos";
+            this.qtdaMoeda5Centavos.Size = new System.Drawing.Size(0, 13);
+            this.qtdaMoeda5Centavos.TabIndex = 10;
+            this.qtdaMoeda5Centavos.Tag = "";
+            this.qtdaMoeda5Centavos.Visible = false;
             // 
             // TelaPrincipal
             // 
@@ -539,6 +565,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaCappuccino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaMocha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEntregaCafeComLeite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTroco5Centavos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,7 +605,9 @@
         private System.Windows.Forms.Label qtdaMoeda1Real;
         private System.Windows.Forms.Label qtdaMoeda50Centavos;
         private System.Windows.Forms.Label qtdaMoeda25Centavos;
+        private System.Windows.Forms.Label qtdaMoeda5Centavos;
         private System.Windows.Forms.Label qtdaMoeda10Centavos;
+        private System.Windows.Forms.PictureBox imgTroco5Centavos;
     }
 }
 

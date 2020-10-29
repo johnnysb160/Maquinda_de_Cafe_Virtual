@@ -8,13 +8,18 @@ namespace Maquina_de_Cafe_Virtual.Model
 {
     class Moedas
     {
-        public string nomeMoeda;
-        public double valorMoeda;
+        public enumMoedas valorMoeda;
 
-        public Moedas(string nomeMoeda, double valorMoeda)
+        public Moedas(enumMoedas valorMoeda)
         {
-            this.nomeMoeda = nomeMoeda;
             this.valorMoeda = valorMoeda;
         }
+    }
+    public enum enumMoedas : int
+    {
+        dezCentavos = 10,
+        vinteCincoCentavos = 25,
+        cinquinetaCentavos = 50,
+         umReal = 100
     }
 }

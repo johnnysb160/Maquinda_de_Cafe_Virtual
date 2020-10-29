@@ -10,28 +10,7 @@ namespace Maquina_de_Cafe_Virtual.Controle
     class Logica
     {
         public string mensagemErro = "";
-        double ValorSomado = 0;
-        public List<Moedas> RecebeMoeda(Moedas entradaListaDeMoedas)
-        {
-            List<Moedas> listaMoedas = new List<Moedas>();
-            try
-            {
-                if (entradaListaDeMoedas.valorMoeda == 0)
-                {
-                    listaMoedas.Clear();
-                }
-                else
-                {
-                    listaMoedas.Add(new Moedas(entradaListaDeMoedas.nomeMoeda, entradaListaDeMoedas.valorMoeda));
-                }
-            }
-            catch (Exception e)
-            {
-                this.mensagemErro = "Error" + e.Message;
-            }
-            return listaMoedas;
-        }
-
+        public double ValorSomado = 0;
 
         public List<Produtos> RecebeProduto(Produtos entradaProdutos)
         {
@@ -57,7 +36,6 @@ namespace Maquina_de_Cafe_Virtual.Controle
             int i, valorAux, contadorMoedas;
             trocoProduto = ValorSomado - entradaProdutos.valorProduto;
 
-            // definindo as notas do troco (parte inteira)
             valorAux = (int)trocoProduto;
             i = 0; while (valorAux != 0)
             {
@@ -87,16 +65,18 @@ namespace Maquina_de_Cafe_Virtual.Controle
 
         public string AtualizaValorCreditado(Moedas entradaDeMoedas)
         {
+
+            double valorMoeda = (int)entradaDeMoedas.valorMoeda;
+
             if (entradaDeMoedas.valorMoeda == 0)
             {
                 ValorSomado = 0;
             }
-            else if ((ValorSomado + entradaDeMoedas.valorMoeda) <= 4.50)
+            else if ((ValorSomado + (valorMoeda / 100)) <= 5)
             {
-                ValorSomado += entradaDeMoedas.valorMoeda;
-                RecebeMoeda(entradaDeMoedas);
+                ValorSomado += (valorMoeda/100);
             }
-            return ValorSomado.ToString("C2");
+            return (ValorSomado).ToString("C2");
         }
 
         public double[] RecebeValorOpçãoDeProduto()

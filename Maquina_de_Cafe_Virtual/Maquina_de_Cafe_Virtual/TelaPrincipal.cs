@@ -27,12 +27,9 @@ namespace Maquina_de_Cafe_Virtual
             {
                 double valorCappuccino = 3.50;
                 Produtos novoProduto = new Produtos("Cappucino", valorCappuccino);
-                Comandos.RecebeProduto(novoProduto);
                 imgEntregaCappuccino.Visible = true;
-                lblEntrega.Visible = true;
                 lblEntrega.Text = "Saboreie seu Cappucino";
-                AtivaTroco(Comandos.CalculaTroco(novoProduto));
-                DesativaBotoes();
+                RecebeProdutoCalculaTroco(novoProduto);
             }
             catch (Exception)
             {
@@ -46,12 +43,10 @@ namespace Maquina_de_Cafe_Virtual
             {
                 double valorMocha = 4.00;
                 Produtos novoProduto = new Produtos("Mocha", valorMocha);
-                Comandos.RecebeProduto(novoProduto);
                 imgEntregaMocha.Visible = true;
-                lblEntrega.Visible = true;
                 lblEntrega.Text = "Saboreie seu Mocha";
-                AtivaTroco(Comandos.CalculaTroco(novoProduto));
-                DesativaBotoes();
+                RecebeProdutoCalculaTroco(novoProduto);
+
             }
             catch (Exception)
             {
@@ -65,18 +60,31 @@ namespace Maquina_de_Cafe_Virtual
             {
                 double valorCafeComLeite = 3.00;
                 Produtos novoProduto = new Produtos("Café com Leite", valorCafeComLeite);
-                Comandos.RecebeProduto(novoProduto);
                 imgEntregaCafeComLeite.Visible = true;
-                lblEntrega.Visible = true;
                 lblEntrega.Text = "Saboreie seu Café com Leite";
-                AtivaTroco(Comandos.CalculaTroco(novoProduto));
-                DesativaBotoes();
+                RecebeProdutoCalculaTroco(novoProduto);
             }
             catch (Exception)
             {
                 MessageBox.Show(Comandos.mensagemErro);
             }
         }
+
+        private void RecebeProdutoCalculaTroco(Produtos novoProduto)
+        {
+            try
+            {
+                Comandos.RecebeProduto(novoProduto);
+                lblEntrega.Visible = true;
+                AtivaTroco(Comandos.CalculaTroco(novoProduto));
+                DesativaBotoesFinal();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Comandos.mensagemErro);
+            }
+        }
+
         private void AtivaBotaoProduto(double[] AtivaBotaoProduto)
         {
             foreach (double obj in AtivaBotaoProduto)
@@ -108,35 +116,38 @@ namespace Maquina_de_Cafe_Virtual
         {
             foreach (ResultadoTroco obj in trocoResultadoProdutos)
             {
-                string moeda = obj.moedaValor.ToString();
-                int contador = obj.quantidadeMoeda;
-                if (moeda == "10")
+                switch (obj.moedaValor)
                 {
-                    groupBoxTroco.Visible = true;
-                    imgTroco10Centavos.Visible = true;
-                    qtdaMoeda10Centavos.Visible = true;
-                    qtdaMoeda10Centavos.Text = contador.ToString();
-                }
-                else if (moeda == "25")
-                {
-                    groupBoxTroco.Visible = true;
-                    imgTroco25Centavos.Visible = true;
-                    qtdaMoeda25Centavos.Visible = true;
-                    qtdaMoeda25Centavos.Text = contador.ToString();
-                }
-                else if (moeda == "50")
-                {
-                    groupBoxTroco.Visible = true;
-                    imgTroco50Centavos.Visible = true;
-                    qtdaMoeda50Centavos.Visible = true;
-                    qtdaMoeda50Centavos.Text = contador.ToString();
-                }
-                else if (moeda == "1")
-                {
-                    groupBoxTroco.Visible = true;
-                    imgTroco1Real.Visible = true;
-                    qtdaMoeda1Real.Visible = true;
-                    qtdaMoeda1Real.Text = contador.ToString();
+                    case 5:
+                        groupBoxTroco.Visible = true;
+                        imgTroco5Centavos.Visible = true;
+                        qtdaMoeda5Centavos.Visible = true;
+                        qtdaMoeda5Centavos.Text = obj.quantidadeMoeda.ToString();
+                        break;
+                    case 10:
+                        groupBoxTroco.Visible = true;
+                        imgTroco10Centavos.Visible = true;
+                        qtdaMoeda10Centavos.Visible = true;
+                        qtdaMoeda10Centavos.Text = obj.quantidadeMoeda.ToString();
+                        break;
+                    case 25:
+                        groupBoxTroco.Visible = true;
+                        imgTroco25Centavos.Visible = true;
+                        qtdaMoeda25Centavos.Visible = true;
+                        qtdaMoeda25Centavos.Text = obj.quantidadeMoeda.ToString();
+                        break;
+                    case 50:
+                        groupBoxTroco.Visible = true;
+                        imgTroco50Centavos.Visible = true;
+                        qtdaMoeda50Centavos.Visible = true;
+                        qtdaMoeda50Centavos.Text = obj.quantidadeMoeda.ToString();
+                        break;
+                    case 1:
+                        groupBoxTroco.Visible = true;
+                        imgTroco1Real.Visible = true;
+                        qtdaMoeda1Real.Visible = true;
+                        qtdaMoeda1Real.Text = obj.quantidadeMoeda.ToString();
+                        break;
                 }
             }
         }
@@ -154,8 +165,6 @@ namespace Maquina_de_Cafe_Virtual
             {
                 groupBoxValorCreditado.Visible = false;
                 lblValorCreditado.Visible = false;
-                Moedas novaMoeda = new Moedas("0 Centavos", 0);
-                Comandos.AtualizaValorCreditado(novaMoeda);
                 lblValorCreditado.Text = "0";
 
                 groupBoxTroco.Visible = false;
@@ -189,6 +198,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblDefeitoNaLeitoraMoedas.Visible = false;
                 btnCancelar.Enabled = true;
                 statusCompra = true;
+                Comandos.ValorSomado = 0;
             }
         }
 
@@ -203,8 +213,6 @@ namespace Maquina_de_Cafe_Virtual
 
                 groupBoxValorCreditado.Visible = false;
                 lblValorCreditado.Visible = false;
-                Moedas novaMoeda = new Moedas("0 Centavos", 0);
-                Comandos.AtualizaValorCreditado(novaMoeda);
                 lblValorCreditado.Text = "0";
 
                 groupBoxTroco.Visible = false;
@@ -219,6 +227,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblEntrega.Visible = false;
 
                 lblDefeitoNaLeitoraMoedas.Visible = false;
+                Comandos.ValorSomado = 0;
             }
 
         }
@@ -240,7 +249,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblDefeitoNaLeitoraMoedas.Visible = false;
                 groupBoxValorCreditado.Visible = true;
                 lblValorCreditado.Visible = true;
-                Moedas novaMoeda = new Moedas("10 Centavos", 0.10);
+                Moedas novaMoeda = new Moedas(enumMoedas.dezCentavos);
                 lblValorCreditado.Text = Comandos.AtualizaValorCreditado(novaMoeda);
                 AtivaBotaoProduto(Comandos.RecebeValorOpçãoDeProduto());
             }
@@ -257,7 +266,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblDefeitoNaLeitoraMoedas.Visible = false;
                 groupBoxValorCreditado.Visible = true;
                 lblValorCreditado.Visible = true;
-                Moedas novaMoeda = new Moedas("25 Centavos", 0.25);
+                Moedas novaMoeda = new Moedas(enumMoedas.vinteCincoCentavos);
                 lblValorCreditado.Text = Comandos.AtualizaValorCreditado(novaMoeda);
                 AtivaBotaoProduto(Comandos.RecebeValorOpçãoDeProduto());
             }
@@ -274,7 +283,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblDefeitoNaLeitoraMoedas.Visible = false;
                 groupBoxValorCreditado.Visible = true;
                 lblValorCreditado.Visible = true;
-                Moedas novaMoeda = new Moedas("50 Centavos", 0.50);
+                Moedas novaMoeda = new Moedas(enumMoedas.cinquinetaCentavos);
                 lblValorCreditado.Text = Comandos.AtualizaValorCreditado(novaMoeda);
                 AtivaBotaoProduto(Comandos.RecebeValorOpçãoDeProduto());
             }
@@ -291,7 +300,7 @@ namespace Maquina_de_Cafe_Virtual
                 lblDefeitoNaLeitoraMoedas.Visible = false;
                 groupBoxValorCreditado.Visible = true;
                 lblValorCreditado.Visible = true;
-                Moedas novaMoeda = new Moedas("1 Real", 1);
+                Moedas novaMoeda = new Moedas(enumMoedas.umReal);
                 lblValorCreditado.Text = Comandos.AtualizaValorCreditado(novaMoeda);
                 AtivaBotaoProduto(Comandos.RecebeValorOpçãoDeProduto());
             }
@@ -300,6 +309,7 @@ namespace Maquina_de_Cafe_Virtual
                 MessageBox.Show(Comandos.mensagemErro);
             }
         }
+
         private void AtivaBotoes()
         {
             groupBoxMoedas.Visible = true;
@@ -336,6 +346,25 @@ namespace Maquina_de_Cafe_Virtual
             qtdaMoeda25Centavos.Text = "";
             qtdaMoeda50Centavos.Text = "";
             qtdaMoeda1Real.Text = "";
+        }
+
+        private void DesativaBotoesFinal()
+        {
+            groupBoxMoedas.Visible = false;
+            btn1Centavo.Visible = false;
+            btn5Centavos.Visible = false;
+            btn10Centavos.Visible = false;
+            btn25Centavos.Visible = false;
+            btn50Centavos.Visible = false;
+            btn1Real.Visible = false;
+
+
+            btnCafeComLeite.Enabled = false;
+            btnCappucino.Enabled = false;
+            btnMocha.Enabled = false;
+            imgSetaCafeComLeite.Visible = false;
+            imgSetaCapuccino.Visible = false;
+            imgSetaMocha.Visible = false;
         }
     }
 }
