@@ -49,6 +49,7 @@
     <Compile Include="Controle\Logica.cs" />
     <Compile Include="Model\Moedas.cs" />
     <Compile Include="Model\Produtos.cs" />
+    <Compile Include="Model\ResultadoTroco.cs" />
     <Compile Include="TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
